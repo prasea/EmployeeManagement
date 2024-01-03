@@ -12,10 +12,10 @@ namespace EmployeeManagement.Controllers
         {
             _employeeRepository = new MockEmployeeRepository();
         }
-        public string Index()
+        public ViewResult Index()
         {
-            string employeeName = _employeeRepository.GetEmployee(1).Name;
-            return employeeName;
+            var employeeModel = _employeeRepository.GetAllEmployees();
+            return View(employeeModel);
         }
         public ViewResult Details()
         {
